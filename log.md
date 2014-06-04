@@ -1,20 +1,8 @@
-pd3-StudentOrganizer-Burghard-Gokhberg
+Log
 ======================================
-Members:
-	Claire Burghard
-	Julia Gokhberg
-
-Description:
-	We plan on creating a student planner in which there will be a “To Do” list in which assignments will be marked by their due date and whether they are completed or not. We also plan on creating flash cards as a study aid, and maybe even allowing students to write essays using the program.
-
-Instructions:
-	TBD
-
-What Works:
-	TBD
-
-What Doesn’t:
-	TBD
-
-Data Structures & Highlights:
-	TBD
+June 2, 2014
+	Julia: Claire and I both planned out the project and what order we would tackle our goals in.
+	
+June 3, 2014
+	Julia: I created an Assignment class that we could add to later as needed. I also wrote the README.md file.
+	Claire: Created the repository.
