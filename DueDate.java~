@@ -1,0 +1,18 @@
+import java.util.*;
+import java.io.*;
+
+public class DueDate{
+    public int month; // 1 - 12
+    public int day; // 1 - 30
+    public int year;
+    public int hour; // 0 - 23;
+    public int min; // 0 - 59;
+
+    public DueDate (int y, int mon, int d, int h, int min){
+	year = y;
+	month = mon;
+	day = d;
+	hour = h;
+	this.min = min;
+    }
+

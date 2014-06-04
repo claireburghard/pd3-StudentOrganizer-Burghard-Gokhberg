@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Assignment{
-    public boolean isCompleted;
-    public DueDate due;
+    private boolean isCompleted;
+    private DueDate due;
 
     public Assignment(DueDate d){
 	due = d;
