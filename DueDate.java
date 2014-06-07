@@ -17,7 +17,7 @@ public class DueDate{
     }
 
     public String toString(){
-	return month + "/" + day + "/" + year + ", " + hour +":" min;
+	return month + "/" + day + "/" + year + ", " + hour +":" + min;
     }
 
 }
