@@ -14,3 +14,7 @@ June 4, 2014
 June 6, 2014
 	Julia: Editted what Claire did in class and added a complete method to the Backpack.
 	Claire:Created the Backpack class, which is essentially the umbrella class of the whole project. There is an array of all the assignments contained in the backpack, and the Planner will be a priority queue-type data structure that is like a to-do list. Added basic methods to Backpack. 
+
+June 8, 2014
+	Julia: Started the ToDo List.
+	Claire:
