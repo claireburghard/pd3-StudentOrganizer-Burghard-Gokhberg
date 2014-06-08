@@ -2,11 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class Assignment{
-    private String name;
     private boolean isCompleted;
     private DueDate due;
+    private String name;
 
-    public Assignment(DueDate d){
+    public Assignment(String n, DueDate d){
+	name = n;
 	due = d;
 	isCompleted = false;
     }
