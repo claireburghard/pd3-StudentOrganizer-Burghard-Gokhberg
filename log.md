@@ -22,5 +22,6 @@ June 8, 2014
 		2) edited the DueDate class so that due dates can be compared based on how many minutes they add up to (totalMinutes() method). Added a method to the ToDoList class that allows you to add an assignment to the toDoList in the proper place based on its due date. 
 		
 June 9, 2014
-	Julia: 1) Fixed a few bugs in the Node and DueDate classes.
+	Julia:  1) Fixed a few bugs in the Node and DueDate classes.
+		2) Finished fixing about 10 non-typo bugs that were not allowing To Do List to compile. It now can compile smoothly.
 	TOGETHER: In class, we used Julia's computer to fix bugs in the code together using pair programming.
