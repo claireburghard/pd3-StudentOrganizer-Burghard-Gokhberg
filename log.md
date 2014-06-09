@@ -23,4 +23,4 @@ June 8, 2014
 		
 June 9, 2014
 	Julia: 1) Fixed a few bugs in the Node and DueDate classes.
-	
+	TOGETHER: In class, we used Julia's computer to fix bugs in the code together using pair programming.
