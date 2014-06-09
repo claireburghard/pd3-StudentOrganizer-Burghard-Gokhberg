@@ -116,27 +116,29 @@ public class ToDoList{
 
     public void setRight(Assignment a){
 	//inserts Assignment a in its correct spot based on due date
-	DueDate d = new DueDate(a.getDueDate());
+	DueDate d = new DueDate();
+	d = a.getDueDate();
 	int total = d.totalMinutes();
 	temp = head.getNext();
         boolean done = false;
 	while (done != true){
-	    int t = temp.getDueDate().totalMinutes();
+	    int t = temp.getAsmt().getDueDate().totalMinutes();
 	    if (t <= total){
 		temp = temp.getNext();
 	    }
 	    else{
 		temp2 = temp.getNext();
-		temp.setNext(a);
+		Node z = new Node(a);
+		temp.setNext(z);
 		temp.getNext().setNext(temp2);
-		boolean done = true;
+	        done = true;
 	    }
 	}
 	    
     }
 
 
-    public String remove (int x){
+    public Assignment remove (int x){
 	//remove and return the String at x
 	int pos = 0;
 	temp = head.getNext();
