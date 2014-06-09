@@ -1,11 +1,15 @@
-import java.io*;
-import java.util*;
+import java.io.*;
+import java.util.*;
 
 public class ToDoList{
-    private Node head, tail, temp, temp2;
+    private Node head = new Node();
+    private Node tail = new Node();
+    private Node temp = new Node();
+    private Node temp2 = new Node();
 
     public ToDoList(){
-	head = new Node(Assignment head = new Assignment());
+	Assignment h = new Assignment();
+	head = new Node(h);
 	tail = head;
     }
     
@@ -19,7 +23,7 @@ public class ToDoList{
 
     //We only need to add to the end. #FIFOislife-o
     public void add(Assignment a){
-	Node temp = new Node(a);
+	temp = new Node(a);
 	tail.setNext(temp);
 	tail = temp;
     }
@@ -28,7 +32,7 @@ public class ToDoList{
 	String answer = "";
 	temp = head.getNext();
 	while (temp!=null){
-	    answer += temp.getData() + "\n";
+	    answer += temp.getAsmt() + "\n";
 	    temp = temp.getNext();
 	}
 	return answer;
@@ -41,7 +45,7 @@ public class ToDoList{
 	for (int pos = 0; pos <n; pos++){
 	    temp = temp.getNext();
 	}
-	return temp.getName();
+	return temp.toString();
     }
 
     public int find (String n){
@@ -51,7 +55,7 @@ public class ToDoList{
 	temp = head.getNext();
 	int pos = 0;
         while (temp != null){
-	    if (temp.getData().equals(n)){
+	    if (temp.getAsmt().equals(n)){
 		return pos;
 	    }else{
 		pos++;
@@ -142,7 +146,7 @@ public class ToDoList{
 	    temp2 = temp2.getNext();
 	    pos++;
 	}
-	Assignment res = temp2.getData();
+	Assignment res = temp2.getAsmt();
 	temp.setNext(temp2.getNext());
 	return res;
     }

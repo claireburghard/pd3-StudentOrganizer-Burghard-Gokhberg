@@ -2,6 +2,12 @@ public class Node{
     private Assignment asmt;
     private Node next;
     
+
+    public Node() {
+	asmt = new Assignment();
+	next = null;
+    }
+
     public Node(Assignment a){
 	asmt = a;
 	next = null;

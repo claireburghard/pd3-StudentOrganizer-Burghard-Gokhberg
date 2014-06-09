@@ -8,18 +8,23 @@ public class Backpack {
     //so, you can have assignments that are not listed in the planner; for example, assignments that have already been completed or assignments that aren't due for a while. 
     private ArrayList<Assignment> assignments;
     private ArrayList<Assignment> completed;
-    //some instance variable for the priority queue that creates a planner (a to-do list that establishes priority); we'll write this later.
+    private ToDoList TDL = new ToDoList();
 
     public Backpack(){
 	assignments = new ArrayList<Assignment>();
 	completed = new ArrayList<Assignment>();
     }
 
-     public Backpack(Assignment a){
+    public Backpack(Assignment a){
 	assignments = new ArrayList<Assignment>();
 	assignments.add(a);
     }
 
+    public ToDoList getTDL() {
+	return TDL;
+    }
+
+	
     //creates an assignment. User gives a name and if an assignment with that name does not already exist, an assignment is created by that name.
     //return true if the assignment is added, false otherwise. 
     public boolean addAssignment(Assignment a){
