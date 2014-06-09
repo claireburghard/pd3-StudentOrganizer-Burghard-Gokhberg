@@ -11,7 +11,7 @@ public class Node{
 	asmt = a;
     }
 
-    public String getAsmt(){
+    public Assignment getAsmt(){
 	return asmt;
     }
 

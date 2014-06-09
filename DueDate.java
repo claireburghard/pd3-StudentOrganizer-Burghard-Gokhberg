@@ -27,6 +27,7 @@ public class DueDate{
 	total = total + day*24*60*60;
 	total = total + hour*60;
 	total = total + min;
+	return total;
     }
 
 }
