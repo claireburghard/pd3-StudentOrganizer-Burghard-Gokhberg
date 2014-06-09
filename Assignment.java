@@ -6,6 +6,10 @@ public class Assignment{
     private DueDate due;
     private String name;
 
+    public Assignment(){
+	isCompleted = false;
+    }
+
     public Assignment(String n, DueDate d){
 	name = n;
 	due = d;
@@ -14,6 +18,10 @@ public class Assignment{
 
     public String getName(){
 	return name;
+    }
+
+    public void setName(String s){
+	name = s;
     }
 
     public boolean isCompleted(){

@@ -43,7 +43,7 @@ public class Backpack {
     //returns true if the assignment has been deleted, false otherwise.
     //precondition: there are no assignments with identical names. This is ensured by the addAssignment method. 
     public void deleteAssignment (String n){ 
-	Assignment todelete; 
+	Assignment todelete = new Assignment(); 
 	for (int i=0; i<assignments.size(); i++){
 	    if (assignments.get(i).getName() == n){
 		todelete = assignments.get(i);
@@ -55,7 +55,7 @@ public class Backpack {
     //Should we create some kind of method that goes through the list of assignments and moves the ones that are completed to the completed list? Or one that does it as soon as an assignment is completed?
 
     public void completeAssignment (String n){
-	Assignment complete;
+	Assignment complete = new Assignment();
 	for (int x = 0; x < assignments.size(); x++){
 	    if (assignments.get(x).getName() == n){
 		complete = assignments.get(x);
