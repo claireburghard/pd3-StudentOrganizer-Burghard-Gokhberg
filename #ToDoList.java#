@@ -5,7 +5,7 @@ public class ToDoList{
     private Node head, tail, temp, temp2;
 
     public ToDoList(){
-	head = new Node("Head");
+	head = new Node(Assignment head = new Assignment());
 	tail = head;
     }
     
@@ -34,24 +34,24 @@ public class ToDoList{
 	return answer;
     }
 
-    public String get (int x){
-	// returns the Assignment @ location x.
+    public String get (int n){
+	// returns the name of the Assignment that is nth on the To-Do list. 
 	// Works
 	temp = head.getNext();
-	for (int pos = 0; pos < x; pos++){
+	for (int pos = 0; pos <n; pos++){
 	    temp = temp.getNext();
 	}
-	return temp.toString();
+	return temp.getName();
     }
 
-    public int find (String s){
-	// returns the location of the item with value s
+    public int find (String n){
+	// returns the location of the Assignment with name n
 	// or -1 if not found.
 	// Works
 	temp = head.getNext();
 	int pos = 0;
         while (temp != null){
-	    if (temp.getData().equals(s)){
+	    if (temp.getData().equals(n)){
 		return pos;
 	    }else{
 		pos++;
@@ -109,6 +109,13 @@ public class ToDoList{
     }
 
     */
+
+    public String setRight(Assignment a){
+	//inserts Assignment a in its correct spot based on due date
+	DueDate d = new DueDate(a.getDueDate());
+	
+    }
+
 
     public String remove (int x){
 	//remove and return the String at x
