@@ -25,3 +25,7 @@ June 9, 2014
 	*JULIA:  1) Fixed a few bugs in the Node and DueDate classes.
 		2) Finished fixing about 10 non-typo bugs that were not allowing To Do List to compile. It now can compile smoothly.
 	*TOGETHER: In class, we used Julia's computer to fix bugs in the code together using pair programming.
+
+June 10, 2014
+	*JULIA: 1) Started the user scanner file to make the program more interactive.
+	*TOGETHER: Tried to get the code to put the program on the internet working, but to no avail.
