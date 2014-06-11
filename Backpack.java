@@ -10,18 +10,49 @@ public class Backpack {
     private ArrayList<Assignment> completed;
     private ToDoList TDL = new ToDoList();
 
-    public Backpack(){
-	assignments = new ArrayList<Assignment>();
-	completed = new ArrayList<Assignment>();
+    public Backpack(boolean firsttime){
+	if (firsttime == true){
+	    this.createFile();
+	    assignments = new ArrayList<Assignment>();
+	    completed = new ArrayList<Assignment>();
+	}
+	else{
+	    //read from the file, then do stuff
+	}
     }
 
-    public Backpack(Assignment a){
-	assignments = new ArrayList<Assignment>();
-	assignments.add(a);
+    public Backpack(boolean firsttime, Assignment a){
+	if (firsttime == true){
+	    //create the file first
+	    assignments = new ArrayList<Assignment>();
+	    assignments.add(a);
+	}
+	else{
+	    //read from the file, then do stuff
+	}
     }
 
     public ToDoList getTDL() {
 	return TDL;
+    }
+
+    public void createFile(){
+	PrinterWriter backpack = new PrintWriter("backpack.txt");
+    }
+
+    public void readFile(){
+	Scanner s = new Scanner(new Filereader("backpack.txt"));
+	currentline = s.nextLine();
+	
+				
+    }
+
+	
+
+try {
+	    Scanner s = new Scanner(new FileReader(path));
+	    startnum = s.nextInt();
+	}catch (Exception e){};
     }
 
 	
