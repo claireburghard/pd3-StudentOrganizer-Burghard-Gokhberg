@@ -29,3 +29,17 @@ June 9, 2014
 June 10, 2014
 	*JULIA: 1) Started the user scanner file to make the program more interactive.
 	*TOGETHER: Tried to get the code to put the program on the internet working, but to no avail.
+	
+June 11, 2014
+	*JULIA: 1) Continued working on the user class. We need a way to be able to store people's information so that it does not get lost every time they exit the program.
+
+
+
+
+
+
+
+
+
+
+
