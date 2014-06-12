@@ -8,7 +8,7 @@ public class User{
     public static void welcome(){
 	
 	if (username.equals("")){
-	    System.out.println("Welcome to your Student Organizer! Enter a new username!");
+	    System.out.println("Welcome to your Backpack! Enter a new username!");
 	    username = sc.nextLine();
 	    System.out.println("Hello "+ username + "!");
 	}else{
@@ -25,6 +25,8 @@ public class User{
 	System.out.println("Change a due date (change)");
 	System.out.println("Check a due date (check)");
 	System.out.println("Write an essay (essay)");
+	System.out.println("Save the contents of My Backpack (save)");
+	System.out.println("Exit My Backpack (exit)");
 	String response = sc.nextLine();
 	
 	
