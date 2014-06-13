@@ -4,6 +4,7 @@ import java.util.*;
 public class User{
     private static String username = "";
     private static Scanner sc = new Scanner(System.in);
+    private static ToDoList todo = new ToDoList();
     
     public static void welcome(){
 	
@@ -34,6 +35,11 @@ public class User{
 	//THANKS :D
     }
 
+    public static void readToDo(){
+	// Would this be correct?
+	System.out.println(todo.toString());
+    }
+
     public static void main(String[] args){
 	welcome();
 	System.out.println("What would you like to do?");
@@ -47,6 +53,10 @@ public class User{
 	String response = sc.nextLine();
 	if (response.equals("add")){
 		addAnAsmt();
+	}else if (response.equals("todo")){
+		readToDo();
+	}
+
 	}
 	    
 	
