@@ -33,6 +33,8 @@ June 10, 2014
 June 11, 2014
 	*JULIA: 1) Continued working on the user class. We need a way to be able to store people's information so that it does not get lost every time they exit the program.
 
+June 12, 2014
+	*JULIA: Continued work on the methods of the User class.
 
 
 
