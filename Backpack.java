@@ -8,7 +8,7 @@ public class Backpack {
     //so, you can have assignments that are not listed in the planner; for example, assignments that have already been completed or assignments that aren't due for a while. 
     private ArrayList<Assignment> assignments;
     private ArrayList<Assignment> completed;
-    private ToDoList TDL = new ToDoList();
+    private Planner planner = new Planner();
 
     public Backpack(boolean firsttime){
 	if (firsttime == true){
@@ -32,27 +32,48 @@ public class Backpack {
 	}
     }
 
-    public ToDoList getTDL() {
-	return TDL;
+    public Planner getPlanner() {
+	return planner;
     }
 
+    //creates the backpack file if it does not already exsist. The assignments and planner will be saved in this file.
     public void createFile(){
 	PrinterWriter backpack = new PrintWriter("backpack.txt");
     }
 
+    //reads the backpack file whenever the program is opened and re-inserts the contents of the backpack into the program.
     public void readFile(){
-	Scanner s = new Scanner(new Filereader("backpack.txt"));
-	currentline = s.nextLine();
-	
-				
+	String line;
+	try{
+	    BufferedReader reader = new BufferedReader(new FileReader(path));
+	    while ((line = reader.readLine()) != "Planner")
+		{
+		    content += "\n" + line;
+		}
+	    content = content.substring(1);
+	    reader.close();
+	}catch (Exception e){}
+
     }
-
 	
-
-try {
-	    Scanner s = new Scanner(new FileReader(path));
-	    startnum = s.nextInt();
+    //used when the backpack is closed. Takes the contents of the program and rewrites them to the backpack file. 				
+    public void writeFile(){
+	Printwriter out=null;
+	try{
+	    out = new PrintWriter(new BufferedWriter(new FileWriter("backpack.txt")));
+	    for (int i=0; i<assignments.length; i++){
+		out.prinln(assignments[i].getName());
+	    }
+	    out.println("Planner");
+	    for (int i=0; i<planner.getLength(); i++){
+		out.println(planner.get(i).getName());
+	    }
+	    out.println("Completed");
+	    for (int i=0; i<completed.length; i++){
+		out.println(completed[i].getName());
+	    }
 	}catch (Exception e){};
+	out.close();
     }
 
 	

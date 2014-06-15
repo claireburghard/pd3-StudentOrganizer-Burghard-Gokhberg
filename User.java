@@ -56,12 +56,12 @@ public class User{
 	}else if (response.equals("todo")){
 		readToDo();
 	}
-
-	}
-	    
-	
 	
     }
+    
+    
+    
 }
+
 
     
