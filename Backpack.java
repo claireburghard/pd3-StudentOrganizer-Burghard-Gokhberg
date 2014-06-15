@@ -17,7 +17,7 @@ public class Backpack {
 	    completed = new ArrayList<Assignment>();
 	}
 	else{
-	    //read from the file, then do stuff
+	    //read from the data, then do stuff
 	}
     }
 
@@ -36,46 +36,20 @@ public class Backpack {
 	return planner;
     }
 
-    //creates the backpack file if it does not already exsist. The assignments and planner will be saved in this file.
-    public void createFile(){
-	PrinterWriter backpack = new PrintWriter("backpack.txt");
-    }
-
-    //reads the backpack file whenever the program is opened and re-inserts the contents of the backpack into the program.
-    public void readFile(){
-	String line;
+    public Backpack retrieveBackpack(){
 	try{
-	    BufferedReader reader = new BufferedReader(new FileReader(path));
-	    while ((line = reader.readLine()) != "Planner")
-		{
-		    content += "\n" + line;
-		}
-	    content = content.substring(1);
-	    reader.close();
+	Serialization s = new Serialization(10);
+	// Write to disk with FileOutputStream
+	FileOutputStream f_out = new FileOutputStream("myobject.data");
+	// Write object with ObjectOutputStream
+	ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
+	// Write object out to disk
+	obj_out.writeObject(s); 
 	}catch (Exception e){}
-
-    }
-	
-    //used when the backpack is closed. Takes the contents of the program and rewrites them to the backpack file. 				
-    public void writeFile(){
-	Printwriter out=null;
-	try{
-	    out = new PrintWriter(new BufferedWriter(new FileWriter("backpack.txt")));
-	    for (int i=0; i<assignments.length; i++){
-		out.prinln(assignments[i].getName());
-	    }
-	    out.println("Planner");
-	    for (int i=0; i<planner.getLength(); i++){
-		out.println(planner.get(i).getName());
-	    }
-	    out.println("Completed");
-	    for (int i=0; i<completed.length; i++){
-		out.println(completed[i].getName());
-	    }
-	}catch (Exception e){};
-	out.close();
     }
 
+    public void saveBackpack(){
+    }
 	
     //creates an assignment. User gives a name and if an assignment with that name does not already exist, an assignment is created by that name.
     //return true if the assignment is added, false otherwise. 

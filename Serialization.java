@@ -30,6 +30,7 @@ public class Serialization implements Serializable{
     }
 
     public static void main(String args[]){
+
 	try{
 	Serialization s = new Serialization(10);
 	// Write to disk with FileOutputStream
@@ -38,6 +39,26 @@ public class Serialization implements Serializable{
 	ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
 	// Write object out to disk
 	obj_out.writeObject(s); 
+	}catch (Exception e){}
+
+	try{
+	    // Read from disk using FileInputStream
+	    FileInputStream f_in = new FileInputStream("myobject.data");
+	    
+	    // Read object using ObjectInputStream
+	    ObjectInputStream obj_in = new ObjectInputStream (f_in);
+	    
+	    // Read an object
+	    Object obj = obj_in.readObject();
+	    
+	    if (obj instanceof Serialization)
+		{
+		    // Cast object to a "Serialization
+		    Serialization s = (Serialization) obj;
+		    System.out.println(s.getData());
+		    System.out.println(s.getName());
+		    System.out.println(s.numberString());
+		}
 	}catch (Exception e){}
     }
 }

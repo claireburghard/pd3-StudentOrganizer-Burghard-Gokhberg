@@ -2,9 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class User{
-    private static String username = "";
     private static Scanner sc = new Scanner(System.in);
-    private static ToDoList todo = new ToDoList();
+    private Backpack b = new Backpack();
     
     public static void welcome(){
 	
@@ -15,6 +14,36 @@ public class User{
 	}else{
 	    System.out.println("Welcome back " + username);
 	}
+    }
+
+    public void saveBackpack(){
+	try{
+	    // Write to disk with FileOutputStream
+	    FileOutputStream f_out = new FileOutputStream("mybackpack.data");
+	    // Write object with ObjectOutputStream
+	    ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
+	    // Write object out to disk
+	    obj_out.writeObject(b); 
+	}catch (Exception e){}
+    }
+    
+    public Backpack retrieveBackpack(){
+	try{
+	    // Read from disk using FileInputStream
+	    FileInputStream f_in = new FileInputStream("mybackpack.data");
+	    
+	    // Read object using ObjectInputStream
+	    ObjectInputStream obj_in = new ObjectInputStream (f_in);
+	    
+	    // Read an object
+	    Object obj = obj_in.readObject();
+	    
+	    if (obj instanceof Backpack)
+		{
+		    // Cast object to a "Serialization
+		    b = (Backpack) obj;
+		}
+	}catch (Exception e){}
     }
 
     public static void addAnAsmt(){
