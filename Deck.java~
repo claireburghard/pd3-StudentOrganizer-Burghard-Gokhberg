@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Deck{
+    private ArrayList<Flashcard> d = new Arrayist<Flashcard>();
+    Scanner sc = new Scanner(System.in);
+
+    //What constructor would we make?
+
+    public void addCard(Flashcard f){
+	d.add(f);
+    }
+
+    public void reset(){
+	for (int x = 0; x < d.size(); x ++){
+	    if (d.get(x).getCorrect() == true;){
+		d.get(x).setCorrect();
+	    }
+	}
+    }
+
+    public void test(){
+	for (int x = 0; x < d.size(); x ++){
+	    if (d.get(x).getCorrect() == false){
+		d.get(x).show();
+		System.out.println("Did you get this correct? (y)es or (n)o");
+		String r = sc.nextLine();
+		if (r.equals("y")){
+		    d.get(x).setCorrect(true);
+		}else if(!r.equals("n")){
+		    System.out.println( r + " is not recognized.");
+		}
+	    }
+	}
+    }
+		
+	
