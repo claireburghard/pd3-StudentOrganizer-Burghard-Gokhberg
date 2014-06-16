@@ -36,6 +36,8 @@ June 11, 2014
 June 12, 2014
 	*JULIA: Continued work on the methods of the User class.
 
+June 15, 2014
+	*JULIA: Completed the flashcards and they work! HOORAY!
 
 
 
