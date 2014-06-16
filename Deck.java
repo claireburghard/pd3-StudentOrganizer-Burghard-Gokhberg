@@ -73,7 +73,7 @@ public class Deck{
 	Flashcard B = new Flashcard("Abraham Lincoln", "Seventeenth President");
 	D.addCard(A);
 	D.addCard(B);
-	//	D.study();
+	D.study();
 	D.test();
 	D.test();
 	D.reset();
