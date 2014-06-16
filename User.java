@@ -83,14 +83,61 @@ public class User{
     }	
 
     public static void addAsmtToPlanner(){
-	//gotta write this
+	System.out.println("What assignment would you like to add to your planner?");
+	String aname = sc.nextLine();
+	int i=0;
+	while (b.assignments.get(i).getName() != aname){
+	    i++;
+	}
+	if (i<b.getAsmtLength()){
+	    b.getPlanner().add(b.assignments.get(i));
+	    System.out.println("This assignment has been sucessfully inserted into the planner.");
+	}
+	else{
+	    System.out.println("I'm sorry, this assignment does not currently exist.");
+	}	    
     }
 
     public static void makeComplete(){
-	//gotta write this
+	System.out.println("What assignment would you like to make complete?");
+	String aname = sc.nextLine();
+	int i=0;
+	while (b.assignments.get(i).getName() != aname){
+	    i++;
+	}
+	if (i<b.getAsmtLength()){
+	    b.completeAssignment(b.assignments.get(i));
+	    System.out.println("This assignment has been sucessfully completed.");
+	}
+	else{
+	    System.out.println("I'm sorry, this assignment does not currently exist.");
+	}	    
     }
+    
 
     public static void changeDueDate(){
+        System.out.println("What assignment would you like to change the due date of?");
+	String aname = sc.nextLine();
+	int i=0;
+	while (b.assignments.get(i).getName() != aname){
+	    i++;
+	}
+	if (i<b.getAsmtLength()){
+	    System.out.println("What is the due date of your assignment?");
+	    System.out.println("Please enter the date in this order:");
+	    System.out.println("DAY, MONTH, YEAR, HOUR, MINUTE");
+	    int d = sc.nextInt();
+	    int m = sc.nextInt();
+	    int y = sc.nextInt();
+	    int h = sc.nextInt();
+	    int min = sc.nextInt();
+	    DueDate date = new DueDate(y, m, d, h, min);
+	    b.assignments.get(i).changeDueDate(date);
+	    System.out.println("The due date of this assignment has been sucessfully changed.");
+	}
+	else{
+	    System.out.println("I'm sorry, this assignment does not currently exist.");
+	}
     }
 
 
@@ -120,7 +167,7 @@ public class User{
 	        this.openAnAsmt();
 	    }
 	    if (response2.equals("3")){
-		this.deleteAnAsmt();
+		this.deleteAnAsmt("assignments");
 	    }
 	}
 	if (response1.equals("2")){

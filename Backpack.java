@@ -6,8 +6,8 @@ public class Backpack {
     //the assignments ArrayList is just a pile of assignments that have been created. The planner is a priority queue that is a to-do list of assignments in the assignments ArrayList.
     //later, there will be a method that allows you to pick and choose assignments from the assignment ArrayList and add them to the planner. 
     //so, you can have assignments that are not listed in the planner; for example, assignments that have already been completed or assignments that aren't due for a while. 
-    private ArrayList<Assignment> assignments;
-    private ArrayList<Assignment> completed;
+    protected ArrayList<Assignment> assignments;
+    protected ArrayList<Assignment> completed;
     private Planner planner = new Planner();
 
     public Backpack(boolean firsttime){
@@ -35,6 +35,14 @@ public class Backpack {
 
     public Planner getPlanner(){
 	return planner;
+    }
+
+    public int getAsmtLength(){
+	return assignments.size();
+    }
+
+    public int getCompLength(){
+	return completed.size();
     }
 
 	
