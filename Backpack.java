@@ -32,24 +32,11 @@ public class Backpack {
 	}
     }
 
-    public Planner getPlanner() {
+
+    public Planner getPlanner(){
 	return planner;
     }
 
-    public Backpack retrieveBackpack(){
-	try{
-	Serialization s = new Serialization(10);
-	// Write to disk with FileOutputStream
-	FileOutputStream f_out = new FileOutputStream("myobject.data");
-	// Write object with ObjectOutputStream
-	ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
-	// Write object out to disk
-	obj_out.writeObject(s); 
-	}catch (Exception e){}
-    }
-
-    public void saveBackpack(){
-    }
 	
     //creates an assignment. User gives a name and if an assignment with that name does not already exist, an assignment is created by that name.
     //return true if the assignment is added, false otherwise. 
@@ -70,10 +57,10 @@ public class Backpack {
 	return answer;
     }
     
-    //deletes an assignment; user gives a name and if an assignment exists with that name, it will be deleted.
+    //deletes an assignment that is not completed; user gives a name and if an assignment exists with that name, it will be deleted.
     //returns true if the assignment has been deleted, false otherwise.
     //precondition: there are no assignments with identical names. This is ensured by the addAssignment method. 
-    public void deleteAssignment (String n){ 
+    public void deleteAssignment1 (String n){ 
 	Assignment todelete = new Assignment(); 
 	for (int i=0; i<assignments.size(); i++){
 	    if (assignments.get(i).getName() == n){
@@ -81,6 +68,19 @@ public class Backpack {
 	    }
 	}
 	assignments.remove(todelete);
+    }
+
+    //deletes an assignment that is not completed; user gives a name and if an assignment exists with that name, it will be deleted.
+    //returns true if the assignment has been deleted, false otherwise.
+    //precondition: there are no assignments with identical names. This is ensured by the addAssignment method. 
+    public void deleteAssignment2 (String n){
+	Assignment todelete = new Assignment(); 
+	for (int i=0; i<completed.size(); i++){
+	    if (completed.get(i).getName() == n){
+		todelete = completed.get(i);
+	    }
+	}
+	completed.remove(todelete);
     }
 
     //Should we create some kind of method that goes through the list of assignments and moves the ones that are completed to the completed list? Or one that does it as soon as an assignment is completed?

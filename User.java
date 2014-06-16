@@ -57,34 +57,119 @@ public class User{
 	int y = sc.nextInt();
 	int h = sc.nextInt();
 	int min = sc.nextInt();
+	//We also have to add something about the type of assignment (essay, flashcards, etc) 
 	System.out.println("Adding your assignment now...");
 	DueDate date = new DueDate(y, m, d, h, min);
 	Assignment a = new Assignment(name, date);
-	//Claire can you add the part of the code that adds this assignment to the ToDoList?
-	//THANKS :D
+        b.addAssignment(a);
     }
 
-    public static void readToDo(){
-	// Would this be correct?
-	System.out.println(todo.toString());
+    public static void openAnAsmt(){
+	//oof this is going to need some research
     }
+
+    public static void deleteAnAsmt(String key){
+        System.out.println("What is the name of the assignment you would like to delete?");
+	String a = sc.nextLine();
+	if (key.equals("assignments")){
+	    b.deleteAssignment1(a);
+	}
+	if (key.equals("planner")){
+	    b.getPlanner().remove(a);
+	}
+	if (key.equals("completed")){
+	    b.deleteAssignment2(a);
+	}
+    }	
+
+    public static void addAsmtToPlanner(){
+	//gotta write this
+    }
+
+    public static void makeComplete(){
+	//gotta write this
+    }
+
+    public static void changeDueDate(){
+    }
+
 
     public static void main(String[] args){
 	welcome();
-	System.out.println("What would you like to do?");
-	System.out.println("Add an assignment (add)");
-	System.out.println("See your To-Do List (todo)");
-	System.out.println("Change a due date (change)");
-	System.out.println("Check a due date (check)");
-	System.out.println("Write an essay (essay)");
-	System.out.println("Save the contents of My Backpack (save)");
-	System.out.println("Exit My Backpack (exit)");
-	String response = sc.nextLine();
-	if (response.equals("add")){
-		addAnAsmt();
-	}else if (response.equals("todo")){
-		readToDo();
+	//LEVEL 1
+	System.out.println("Where would you like to go?");
+	System.out.println("View all of my assignments(1)");//Assignments
+	System.out.println("View My Planner(2)");//Planner
+	System.out.println("View my completed assignments(3)");//Completed Assignments
+	System.out.println("Exit or save(4)");//Exit or Save
+	String response1 = sc.nextLine();
+
+	//LEVEL 2
+	if (response1.equals("1")){
+	    //Assigments
+	    System.out.println("Add an assignment(1)");//Add an assignment
+	    System.out.println("Open an assignment(2)");//Open an assignment
+	    System.out.println("Delete an assignment(3)");//Delete an assignment
+	    String response2 = sc.nextLine();
+	    
+	    //LEVEL 3
+	    if (response2.equals("1")){
+	        this.addAnAsmt();
+	    }
+	    if (response2.equals("2")){
+	        this.openAnAsmt();
+	    }
+	    if (response2.equals("3")){
+		this.deleteAnAsmt();
+	    }
 	}
+	if (response1.equals("2")){
+	    //My Planner
+	    System.out.println("Add an assignment to My Planner(1)");//Add an assignment to My Planner
+	    System.out.println("Declare an assignment completed(2)");//Declare an assignment completed
+	    System.out.println("Change a due date(3)");//Change a due date
+	    String response2 = sc.nextLine();
+	    //LEVEL 3
+	    if (response2.equals("1")){
+		this.addAsmtToPlanner();
+	    }
+	    if (response2.equals("2")){
+	        this.makeComplete();
+	    }
+	    if (response2.equals("3")){
+	        this.changeDueDate();
+	    }
+	}
+	if (response1.equals("3")){
+	    //Completed assignments
+	    System.out.println("View a completed assignment(1)");//View a completed assignment
+	    System.out.println("Delete a completed assignment(2)");//Delete a completed assignment
+	    String response2 = sc.nextLine();
+
+	    //LEVEL 3
+	    if (response2.equals("1")){
+	        this.openAnAsmt();
+	    }
+	    if (response.equals("2")){
+	        this.deleteAnAsmt();
+	    }
+	}
+	if (repsonse1.equals("4")){
+	    //Exit or save
+	    System.out.println("Save the contents of My Backpack (save)");
+	    System.out.println("Exit My Backpack (exit)");
+	    String response2 = sc.nextLine();
+
+	    //LEVEL 3
+	    if (response2.equals("save")){
+	        this.saveBackpack();
+	    }
+	    if (response2.equals("2")){
+	        this.saveBackpack();
+		//exit the program
+	    }
+	}
+
 	
     }
     
