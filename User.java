@@ -9,7 +9,6 @@ public class User{
     private Backpack b;
     private boolean c1 = true;
 
-    
     public void welcome(){
 	    System.out.println("Welcome to your Backpack! Have you ever used this program before? (y)es or (n)o");
 	 
@@ -63,6 +62,7 @@ public class User{
     }
 
     public void addAnAsmt(){
+	Deck newd = null;
 	System.out.println("What is the name of your assignment?");
 	String name = sc.nextLine();
 	System.out.println("What is the due date of your assignment?");
@@ -74,19 +74,56 @@ public class User{
 	int y = Integer.parseInt(numbers.substring(6,10));
 	int h = Integer.parseInt(numbers.substring(11,13));
 	int min = Integer.parseInt(numbers.substring(14));
-	//We also have to add something about the type of assignment (essay, flashcards, etc) 
+        System.out.println("Would you like this assignment to be a text file(1) of a deck of flashcards(2)?");
+	String type = sc.nextLine();
 	System.out.println("Adding your assignment now...");
 	DueDate date = new DueDate(y, m, d, h, min);
-	Assignment a = new Assignment(name, date);
-        b.addAssignment(a);
-	createFile(name);
+	if (type.equals("1")){
+	    Assignment a = new Assignment(name, date);
+	    b.addAssignment(a);
+	    createFile(name);
+	}
+	else{
+	    newd = new Deck(name,date);
+	    b.addAssignment(newd);
+	    createFile(name);
+	}
 	System.out.println("Would you like to open your new assigment (yes or no)?");
 	String response = sc.nextLine();
-	if (response.equals("yes")){
+	if ((response.equals("yes")) && (type.equals("1"))){
 	    try{
 		File f = new File(name);
 		open(f);
 	    }catch (Exception e){}
+	}
+	else{
+	    openADeck(newd);
+	}
+    
+    }
+
+    public void openADeck(Deck d){
+	boolean go = true;
+	Deck currentdeck = d;
+	System.out.println("Create a new Flashcard to add to the Deck(create)");
+	System.out.println("Study Flashcards in Deck(study)");
+	System.out.println("Test yourself using current Deck of cards(test)");
+	System.out.println("Exit this deck(exit)");
+	while (go == true){
+	    String response = sc.nextLine();
+	    if (response.equals("create")){
+		Flashcard f = new Flashcard();
+		currentdeck.addCard(f);
+	    }
+	    if (response.equals("study")){
+		currentdeck.study();
+	    }
+	    if (response.equals("test")){
+		currentdeck.test();
+	    }
+	    if (response.equals("exit")){
+		go = false;
+	    }
 	}
     }
     

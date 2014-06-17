@@ -1,11 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class Deck{
+public class Deck extends Assignment{
     private ArrayList<Flashcard> d = new ArrayList<Flashcard>();
     Scanner sc = new Scanner(System.in);
 
-    //What constructor would we make?
+    public Deck(String n, DueDate d){
+	super(n,d);
+    }
 
     public void addCard(Flashcard f){
 	//Adds card to the end of the Deck
