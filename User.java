@@ -196,9 +196,6 @@ public class User{
 	    String response2 = sc.nextLine();
 
 	    //TO BE CONTINUED
-
-	}
-
 	    //LEVEL 3
 	    if (response2.equals("1")){
 	        u.openAnAsmt();
@@ -213,30 +210,30 @@ public class User{
 	    System.out.println("Study Flashcards in Deck(study)");
 	    System.out.println("Test yourself using current Deck of cards(test)");
 	    String response2 = sc.nextLine();
-	    
-	    //LEVEL3
+	}
+	
+	//LEVEL3
 	if (response1.equals("5")){
 	    //Exit or save
 	    System.out.println("Save the contents of My Backpack (save)");
-	    System.out.println("Exit My Backpack (exit)");
-	    String response2 = sc.nextLine();
-
-	    //LEVEL 3
-	    if (response2.equals("save")){
-	        u.saveBackpack();
-	    }
-	    if (response2.equals("2")){
+		System.out.println("Exit My Backpack (exit)");
+		String response2 = sc.nextLine();
+		
+		//LEVEL 3
+		if (response2.equals("save")){
+		    u.saveBackpack();
+		}
+		if (response2.equals("2")){
 	        u.saveBackpack();
 		//exit the program
-	    }
+		}
 	}
-
+	
 	
     }
     
     
     
 }
-
 
     
