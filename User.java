@@ -6,9 +6,9 @@ public class User{
     private Backpack b;
     
     public void welcome(){
-	System.out.println("Welcome to your Backpack! Have you ever used this program before? (yes or no)");
+	System.out.println("Welcome to your Backpack! Have you ever used this program before? (y)es or (n)o");
 	String response = sc.nextLine();
-	if (response.equals("yes")){
+	if (response.equals("y")){
 	    b = new Backpack(false);
 	}
 	else{
@@ -146,10 +146,11 @@ public class User{
 	u.welcome();
 	//LEVEL 1
 	System.out.println("Where would you like to go?");
-	System.out.println("View all of my assignments(1)");//Assignments
-	System.out.println("View My Planner(2)");//Planner
+	System.out.println("Manage assignments(1)");//Assignments
+	System.out.println("Manage My Planner(2)");//Planner
 	System.out.println("View my completed assignments(3)");//Completed Assignments
-	System.out.println("Exit or save(4)");//Exit or Save
+	System.out.println("Manage my Flashcards(4)");
+	System.out.println("Exit or save(5)");//Exit or Save
 	String response1 = sc.nextLine();
 
 	//LEVEL 2
@@ -194,6 +195,10 @@ public class User{
 	    System.out.println("Delete a completed assignment(2)");//Delete a completed assignment
 	    String response2 = sc.nextLine();
 
+	    //TO BE CONTINUED
+
+	}
+
 	    //LEVEL 3
 	    if (response2.equals("1")){
 	        u.openAnAsmt();
@@ -203,6 +208,14 @@ public class User{
 	    }
 	}
 	if (response1.equals("4")){
+	    //Manage Flashcards
+	    System.out.println("Create a new Flashcard to add to the Deck(create)");
+	    System.out.println("Study Flashcards in Deck(study)");
+	    System.out.println("Test yourself using current Deck of cards(test)");
+	    String response2 = sc.nextLine();
+	    
+	    //LEVEL3
+	if (response1.equals("5")){
 	    //Exit or save
 	    System.out.println("Save the contents of My Backpack (save)");
 	    System.out.println("Exit My Backpack (exit)");
