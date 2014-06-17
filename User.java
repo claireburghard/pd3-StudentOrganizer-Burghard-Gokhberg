@@ -8,9 +8,11 @@ public class User{
     private static Scanner sc = new Scanner(System.in);
     private Backpack b;
     private boolean c1 = true;
+
     
     public void welcome(){
-	System.out.println("Welcome to your Backpack! Have you ever used this program before? (y)es or (n)o");
+	    System.out.println("Welcome to your Backpack! Have you ever used this program before? (y)es or (n)o");
+	 
 	String response = sc.nextLine();
 	if (response.equals("y")){
 	    b = new Backpack(false);
@@ -18,8 +20,8 @@ public class User{
 	else{
 	    b = new Backpack(true);
 	}
+	
     }
-    
     public static void open(File document) throws IOException {
 	Desktop dt = Desktop.getDesktop();
 	dt.open(document);
@@ -185,6 +187,7 @@ public class User{
 	    System.out.println("Add an assignment(1)");//Add an assignment
 	    System.out.println("Open an assignment(2)");//Open an assignment
 	    System.out.println("Delete an assignment(3)");//Delete an assignment
+	    System.out.println("Show ToDo List(4)");
 	    String response2 = sc.nextLine();
 	    
 	    //LEVEL 3
@@ -196,6 +199,10 @@ public class User{
 	    }
 	    if (response2.equals("3")){
 		deleteAnAsmt("assignments");
+	    }
+	    if (response2.equals("4")){
+		//WE NEED A WAY TO SHOW THE LIST OF ASSIGNMENTS IN ORDER. OTHERWISE THE 
+		//PRIORITY QUEUE IS WACK.
 	    }
 	}
 	if (response1.equals("2")){
@@ -221,7 +228,10 @@ public class User{
 	    System.out.println("Delete a completed assignment(2)");//Delete a completed assignment
 	    String response2 = sc.nextLine();
 
+
 	    //TO BE CONTINUED
+
+
 	    //LEVEL 3
 	    if (response2.equals("1")){
 	        openAnAsmt();
@@ -236,6 +246,8 @@ public class User{
 	    System.out.println("Study Flashcards in Deck(study)");
 	    System.out.println("Test yourself using current Deck of cards(test)");
 	    String response2 = sc.nextLine();
+
+	    //NEEDS TO BE FINISHED.
 	}
 	
 	if (response1.equals("5")){
