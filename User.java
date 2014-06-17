@@ -3,16 +3,16 @@ import java.util.*;
 
 public class User{
     private static Scanner sc = new Scanner(System.in);
-    private Backpack b = new Backpack();
+    private Backpack b;
     
-    public static void welcome(){
-	
-	if (username.equals("")){
-	    System.out.println("Welcome to your Backpack! Enter a new username!");
-	    username = sc.nextLine();
-	    System.out.println("Hello "+ username + "!");
-	}else{
-	    System.out.println("Welcome back " + username);
+    public void welcome(){
+	System.out.println("Welcome to your Backpack! Have you ever used this program before? (yes or no)");
+	String response = sc.nextLine();
+	if (response.equals("yes")){
+	    b = new Backpack(false);
+	}
+	else{
+	    b = new Backpack(true);
 	}
     }
 
@@ -27,7 +27,7 @@ public class User{
 	}catch (Exception e){}
     }
     
-    public Backpack retrieveBackpack(){
+    public void retrieveBackpack(){
 	try{
 	    // Read from disk using FileInputStream
 	    FileInputStream f_in = new FileInputStream("mybackpack.data");
@@ -38,15 +38,14 @@ public class User{
 	    // Read an object
 	    Object obj = obj_in.readObject();
 	    
-	    if (obj instanceof Backpack)
-		{
+	    if (obj instanceof Backpack){
 		    // Cast object to a "Serialization
 		    b = (Backpack) obj;
-		}
+	    }
 	}catch (Exception e){}
     }
 
-    public static void addAnAsmt(){
+    public void addAnAsmt(){
 	System.out.println("What is the name of your assignment?");
 	String name = sc.nextLine();
 	System.out.println("What is the due date of your assignment?");
@@ -64,25 +63,26 @@ public class User{
         b.addAssignment(a);
     }
 
-    public static void openAnAsmt(){
+    public void openAnAsmt(){
 	//oof this is going to need some research
     }
 
-    public static void deleteAnAsmt(String key){
+    public void deleteAnAsmt(String key){
         System.out.println("What is the name of the assignment you would like to delete?");
 	String a = sc.nextLine();
 	if (key.equals("assignments")){
 	    b.deleteAssignment1(a);
 	}
 	if (key.equals("planner")){
-	    b.getPlanner().remove(a);
+	    int index = b.getPlanner().find(a);
+	    b.getPlanner().remove(index);
 	}
 	if (key.equals("completed")){
 	    b.deleteAssignment2(a);
 	}
     }	
 
-    public static void addAsmtToPlanner(){
+    public void addAsmtToPlanner(){
 	System.out.println("What assignment would you like to add to your planner?");
 	String aname = sc.nextLine();
 	int i=0;
@@ -98,7 +98,7 @@ public class User{
 	}	    
     }
 
-    public static void makeComplete(){
+    public void makeComplete(){
 	System.out.println("What assignment would you like to make complete?");
 	String aname = sc.nextLine();
 	int i=0;
@@ -106,7 +106,7 @@ public class User{
 	    i++;
 	}
 	if (i<b.getAsmtLength()){
-	    b.completeAssignment(b.assignments.get(i));
+	    b.completeAssignment(b.assignments.get(i).getName());
 	    System.out.println("This assignment has been sucessfully completed.");
 	}
 	else{
@@ -115,7 +115,7 @@ public class User{
     }
     
 
-    public static void changeDueDate(){
+    public void changeDueDate(){
         System.out.println("What assignment would you like to change the due date of?");
 	String aname = sc.nextLine();
 	int i=0;
@@ -142,7 +142,8 @@ public class User{
 
 
     public static void main(String[] args){
-	welcome();
+	User u = new User();
+	u.welcome();
 	//LEVEL 1
 	System.out.println("Where would you like to go?");
 	System.out.println("View all of my assignments(1)");//Assignments
@@ -161,13 +162,13 @@ public class User{
 	    
 	    //LEVEL 3
 	    if (response2.equals("1")){
-	        this.addAnAsmt();
+	        u.addAnAsmt();
 	    }
 	    if (response2.equals("2")){
-	        this.openAnAsmt();
+	        u.openAnAsmt();
 	    }
 	    if (response2.equals("3")){
-		this.deleteAnAsmt("assignments");
+		u.deleteAnAsmt("assignments");
 	    }
 	}
 	if (response1.equals("2")){
@@ -178,13 +179,13 @@ public class User{
 	    String response2 = sc.nextLine();
 	    //LEVEL 3
 	    if (response2.equals("1")){
-		this.addAsmtToPlanner();
+		u.addAsmtToPlanner();
 	    }
 	    if (response2.equals("2")){
-	        this.makeComplete();
+	        u.makeComplete();
 	    }
 	    if (response2.equals("3")){
-	        this.changeDueDate();
+	        u.changeDueDate();
 	    }
 	}
 	if (response1.equals("3")){
@@ -195,13 +196,13 @@ public class User{
 
 	    //LEVEL 3
 	    if (response2.equals("1")){
-	        this.openAnAsmt();
+	        u.openAnAsmt();
 	    }
-	    if (response.equals("2")){
-	        this.deleteAnAsmt();
+	    if (response2.equals("2")){
+	        u.deleteAnAsmt("completed");
 	    }
 	}
-	if (repsonse1.equals("4")){
+	if (response1.equals("4")){
 	    //Exit or save
 	    System.out.println("Save the contents of My Backpack (save)");
 	    System.out.println("Exit My Backpack (exit)");
@@ -209,10 +210,10 @@ public class User{
 
 	    //LEVEL 3
 	    if (response2.equals("save")){
-	        this.saveBackpack();
+	        u.saveBackpack();
 	    }
 	    if (response2.equals("2")){
-	        this.saveBackpack();
+	        u.saveBackpack();
 		//exit the program
 	    }
 	}

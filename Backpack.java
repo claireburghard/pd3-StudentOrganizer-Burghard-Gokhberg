@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Backpack {
+public class Backpack{
 
     //the assignments ArrayList is just a pile of assignments that have been created. The planner is a priority queue that is a to-do list of assignments in the assignments ArrayList.
     //later, there will be a method that allows you to pick and choose assignments from the assignment ArrayList and add them to the planner. 
@@ -12,7 +12,6 @@ public class Backpack {
 
     public Backpack(boolean firsttime){
 	if (firsttime == true){
-	    this.createFile();
 	    assignments = new ArrayList<Assignment>();
 	    completed = new ArrayList<Assignment>();
 	}
@@ -20,18 +19,6 @@ public class Backpack {
 	    //read from the data, then do stuff
 	}
     }
-
-    public Backpack(boolean firsttime, Assignment a){
-	if (firsttime == true){
-	    //create the file first
-	    assignments = new ArrayList<Assignment>();
-	    assignments.add(a);
-	}
-	else{
-	    //read from the file, then do stuff
-	}
-    }
-
 
     public Planner getPlanner(){
 	return planner;

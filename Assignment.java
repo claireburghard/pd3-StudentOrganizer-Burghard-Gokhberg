@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Assignment{ 
+public class Assignment{  
     private boolean isCompleted; 
     private DueDate due; 
     private String name; //keep in mind, the name is a path. So it has to be "biology_homework.txt" or "compsci_project.java" 

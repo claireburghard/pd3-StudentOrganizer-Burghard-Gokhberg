@@ -41,11 +41,11 @@ public class Planner {
     public String get (int n){
 	// returns the name of the Assignment that is nth in the Planner.
 	// Works
-	temp = head.getNext();
+	Node temp = head.getNext();
 	for (int pos = 0; pos <n; pos++){
 	    temp = temp.getNext();
 	}
-	return temp.getName();
+	return temp.getAsmt().getName();
     }
 
     public int find (String n){
@@ -100,9 +100,9 @@ public class Planner {
 	    
     }
 
-
-    public Assignment remove (int x){
-	//remove and return the String at x
+    
+    public void remove (int x){
+	//remove and return the Assignment at x
 	int pos = 0;
 	temp = head.getNext();
 	temp2 = temp.getNext();
@@ -113,7 +113,6 @@ public class Planner {
 	}
 	Assignment res = temp2.getAsmt();
 	temp.setNext(temp2.getNext());
-	return res;
     }
 	
 }
