@@ -31,17 +31,22 @@ June 10, 2014
 	*TOGETHER: Tried to get the code to put the program on the internet working, but to no avail.
 	
 June 11, 2014
-	*JULIA: 1) Continued working on the user class. We need a way to be able to store people's information so that it does not get lost every time they exit the program.
+	*JULIA: Continued working on the user class. We need a way to be able to store people's information so that it does not get lost every time they exit the program.
+	*CLAIRE: Worked on saving the Backpack to a file.
 
 June 12, 2014
 	*JULIA: Continued work on the methods of the User class.
+	
+June 14, 2014
+	*CLAIRE: 1) Worked on framework.
+		 2) Figured out Serialization and created Serialization methods.
 
 June 15, 2014
 	*JULIA: Completed the flashcards and they work! HOORAY!
 
 June 16, 2014
 	*JULIA: Made the EssayWriter class and made some ammends to the User class.
-
+	*CLAIRE: Finalized the User interface and tied everything together.
 
 
 
