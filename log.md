@@ -39,6 +39,8 @@ June 12, 2014
 June 15, 2014
 	*JULIA: Completed the flashcards and they work! HOORAY!
 
+June 16, 2014
+	*JULIA: Made the EssayWriter class and made some ammends to the User class.
 
 
 
